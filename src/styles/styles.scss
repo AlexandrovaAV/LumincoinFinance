@@ -1,0 +1,18 @@
+@import "fonts";
+body {
+  font-family: Roboto-400,sans-serif;
+  color: #000;
+}
+
+.title-page {
+  font-family: Roboto-500, sans-serif;
+}
+
+.svg-offset path {
+  transform: translate(1px, 0px);
+}
+
+input,
+input::placeholder {
+  font-size: 15px;
+}

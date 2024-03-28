@@ -1,4 +1,5 @@
 import {Login} from "./components/auth/login";
+import {Signup} from "./components/auth/signup";
 
 export class Router {
     constructor() {
@@ -31,12 +32,12 @@ export class Router {
             {
                 route: '/signup',
                 title: 'Регистрация',
-                filePathTemplate: '/templates/pages/auth/login.html', //signup
+                filePathTemplate: '/templates/pages/auth/signup.html',
                 styles: [],
                 scripts: [],
                 useLayout: false,
                 load: ()=> {
-                    // new Login(this.openNewRoute.bind(this));
+                    new Signup(this.openNewRoute.bind(this));
                 }
             }
         ];

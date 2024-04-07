@@ -15,7 +15,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/main.html',
                 styles: [],
                 scripts: [],
-                useLayout: true,
+                useLayout: '/templates/layout.html', // LAYOUT HTML
                 load: ()=>{},
             },
             {
@@ -80,7 +80,7 @@ export class Router {
     async activateRoute(oldRoute = null) {
 
         const urlRoute = window.location.pathname;
-        let newRoute = this.routes.find(item => item.route === urlRoute); // определенная страница из массива routes
+        let newRoute = this.routes.find(item => item.route === urlRoute);
 
         if (newRoute) {
             if (newRoute.title) { // заголовок вкладки
@@ -90,7 +90,10 @@ export class Router {
             if (newRoute.filePathTemplate) {
                 let contentBlock = this.contentPageElement;
 
-                // код на LAYOUT
+                if (newRoute.useLayout) { // layout
+                    this.contentPageElement.innerHTML = await fetch(newRoute.useLayout).then(response => response.text());
+                    contentBlock = document.getElementById('content-layout');
+                }
 
                 contentBlock.innerHTML = await fetch(newRoute.filePathTemplate).then(response => response.text());
             }

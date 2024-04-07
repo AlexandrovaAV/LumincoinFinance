@@ -37,7 +37,6 @@ module.exports = {
             patterns: [
                 { from: "./src/templates", to: "templates" },
                 { from: "./src/static/images", to: "static/images" },
-                // { from: "./src/static/fonts", to: "static/fonts" },
                 { from: "./node_modules/bootstrap/dist/css/bootstrap.min.css", to: "css" },
                 { from: "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js", to: "js" },
             ],

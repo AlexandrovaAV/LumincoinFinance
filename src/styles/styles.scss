@@ -1,6 +1,8 @@
 @import "fonts";
+@import "layout";
+
 body {
-  font-family: Roboto-400,sans-serif;
+  font-family: Roboto-400, sans-serif;
   color: #000;
 }
 
@@ -11,6 +13,7 @@ body {
 .form-input-icon {
   width: 38px;
   position: relative;
+
   svg {
     position: absolute;
   }
@@ -24,3 +27,4 @@ input,
 input::placeholder {
   font-size: 15px;
 }
+

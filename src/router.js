@@ -2,6 +2,8 @@ import {Login} from "./components/auth/login";
 import {Signup} from "./components/auth/signup";
 import {Main} from "./components/main";
 import {IncomeView} from "./components/income/view";
+import {IncomeCreate} from "./components/income/create";
+import {IncomeEdit} from "./components/income/edit";
 
 export class Router {
     constructor() {
@@ -53,6 +55,28 @@ export class Router {
                 useLayout: '/templates/layout.html',
                 load: ()=> {
                     new IncomeView(this.openNewRoute.bind(this));
+                }
+            },
+            {
+                route: '/income/create',
+                title: 'Создание категории доходов',
+                filePathTemplate: '/templates/pages/income/create.html',
+                styles: [],
+                scripts: [],
+                useLayout: '/templates/layout.html',
+                load: ()=> {
+                    new IncomeCreate(this.openNewRoute.bind(this));
+                }
+            },
+            {
+                route: '/income/edit',
+                title: 'Редактирование категории доходов',
+                filePathTemplate: '/templates/pages/income/edit.html',
+                styles: [],
+                scripts: [],
+                useLayout: '/templates/layout.html',
+                load: ()=> {
+                    new IncomeEdit(this.openNewRoute.bind(this));
                 }
             },
         ];

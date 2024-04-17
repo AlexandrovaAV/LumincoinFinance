@@ -1,7 +1,6 @@
 @import "fonts";
 @import "layout";
 @import "main";
-@import "income";
 
 body {
   font-family: Roboto-400, sans-serif;
@@ -28,6 +27,74 @@ body {
 input,
 input::placeholder {
   font-size: 15px;
+}
+
+.modal {
+  .modal-text {
+    color: #290661;
+    font-size: 20px;
+  }
+
+  .modal-buttons {
+    button {
+      font-size: 14px;
+    }
+  }
+}
+
+.income-expenses {
+  .income-expenses-cards {
+    .card {
+      width: 352px;
+      height: 121px;
+
+      .card-body {
+        .card-title {
+          color: #290661;
+          font-size: 28px;
+        }
+
+        .buttons a {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .income-expenses-add {
+      cursor: pointer;
+
+      .card-body {
+        font-size: 28px;
+        transition: .3s;
+        color: #CED4DA;
+      }
+
+      &:hover {
+        background: #f1f1f1;
+
+        .card-body {
+          transform: scale(1.4);
+          color: gray;
+        }
+      }
+    }
+  }
+}
+
+.income-expenses-form {
+  input {
+    font-size: 15px;
+
+    &::placeholder {
+      font-size: 15px;
+    }
+  }
+
+  .buttons {
+    a {
+      font-size: 14px;
+    }
+  }
 }
 
 @import "adaptive";

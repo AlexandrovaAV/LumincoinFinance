@@ -3,8 +3,8 @@
     margin-top: 50px;
   }
 
-  .income {
-    .income-cards {
+  .income-expenses {
+    .income-expenses-cards {
       .card {
         width: 260px;
         height: 121px;
@@ -49,8 +49,8 @@
 }
 
 @media screen and (max-width: 575px) {
-  .income {
-    .income-cards {
+  .income-expenses {
+    .income-expenses-cards {
       .card {
         width: 223px;
         height: 144px;
@@ -81,8 +81,8 @@
 }
 
 @media screen and (max-width: 493px) {
-  .income {
-    .income-cards {
+  .income-expenses {
+    .income-expenses-cards {
       .card {
         width: 160px;
       }
@@ -91,8 +91,8 @@
 }
 
 @media screen and (max-width: 360px) {
-  .income {
-    .income-cards {
+  .income-expenses {
+    .income-expenses-cards {
       justify-content: start;
       .card {
         width: 140px;

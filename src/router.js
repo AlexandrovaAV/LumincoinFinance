@@ -1,6 +1,7 @@
 import {Login} from "./components/auth/login";
 import {Signup} from "./components/auth/signup";
 import {Main} from "./components/main";
+import {IncomeView} from "./components/income/view";
 
 export class Router {
     constructor() {
@@ -46,12 +47,12 @@ export class Router {
             {
                 route: '/income',
                 title: 'Доходы',
-                filePathTemplate: '/templates/pages/auth/signup.html',
+                filePathTemplate: '/templates/pages/income/view.html',
                 styles: [],
                 scripts: [],
-                useLayout: false,
+                useLayout: '/templates/layout.html',
                 load: ()=> {
-                    new Signup(this.openNewRoute.bind(this));
+                    new IncomeView(this.openNewRoute.bind(this));
                 }
             },
         ];

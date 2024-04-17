@@ -1,6 +1,27 @@
-<div class="main">
-    <a href="/login">Авторизация</a>
-    <a href="/signup">Регистрация</a>
-    <a href="/category">Категория <b>доходы</b></a>
-    <a href="">Категория <b>расходы</b></a>
+<div class="main ps-3 pe-3 pt-3 ps-xl-0 pe-xl-0 pt-xl-0">
+
+    <h1 class="text-primary-emphasis title-page mb-4 mb-xl-5 mb-sm-3 ms-5 ms-xl-0 ps-4 ps-xl-0">Главная</h1>
+
+    <div class="main-intervals intervals d-flex flex-wrap justify-content-evenly justify-content-lg-start column-gap-xl-4 column-gap-2 row-gap-2">
+        <button type="button" class="btn btn-secondary title-page">Сегодня</button>
+        <button type="button" class="btn btn-outline-secondary title-page">Неделя</button>
+        <button type="button" class="btn btn-outline-secondary title-page">Месяц</button>
+        <button type="button" class="btn btn-outline-secondary title-page">Год</button>
+        <button type="button" class="btn btn-outline-secondary title-page">Все</button>
+        <button type="button" class="btn btn-outline-secondary title-page">Интервал</button>
+        <div class="interval d-flex align-items-center">
+            <div>с
+                <button type="button" class="btn btn-link text-secondary title-page">Дата</button>
+            </div>
+            <div class="ms-3">по
+                <button type="button" class="btn btn-link text-secondary title-page">Дата</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="diagram z-2 d-flex flex-wrap justify-content-xl-around justify-content-lg-between justify-content-center row-gap-5">
+        <div class="" style="width: 437px; height: 467px;"><canvas id="income"></canvas></div>
+        <hr class="main-hr d-none d-lg-block border border-end-1 border-dark-subtle">
+        <div class="" style="width: 437px; height: 467px;"><canvas id="expenses"></canvas></div>
+    </div>
 </div>

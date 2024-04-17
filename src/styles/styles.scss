@@ -1,5 +1,6 @@
 @import "fonts";
 @import "layout";
+@import "main";
 
 body {
   font-family: Roboto-400, sans-serif;
@@ -28,3 +29,4 @@ input::placeholder {
   font-size: 15px;
 }
 
+@import "adaptive";

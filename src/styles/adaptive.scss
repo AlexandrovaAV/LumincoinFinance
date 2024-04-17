@@ -1,0 +1,30 @@
+@media screen and (max-width: 1200px){
+  .diagram {
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .intervals {
+    button {
+      width: 78px;
+      font-size: 12px;
+    }
+    .interval {
+      font-size: 12px;
+      button {
+        width: 63px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 906px){
+  .burger {
+    border-color: #0D6EFD;
+    background: #0D6EFD;
+    button svg {
+      fill: #FFFFFF;
+    }
+  }
+}

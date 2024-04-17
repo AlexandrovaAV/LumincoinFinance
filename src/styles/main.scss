@@ -1,0 +1,19 @@
+.intervals {
+  button {
+    width: 100px;
+  }
+  .interval {
+    button {
+      width: 63px;
+    }
+  }
+}
+
+.diagram {
+  position: relative;
+  margin-top: 140px;
+}
+
+.chartjs-hidden-iframe {
+  height: 100% !important;
+}

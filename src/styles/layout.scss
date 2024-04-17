@@ -1,4 +1,4 @@
-.navbar {
+/*.navbar {
   .navbar-brand {
     img {
       width: 98px;
@@ -147,8 +147,207 @@ div + .layout-line {
   &:hover {
     transform: translateX(5px);
   }
+}*/
+
+.menu-items {
+  padding: 60px 20px 0 20px;
+
+  .menu-item {
+    padding: 12px 11px 12px 16px;
+    border-radius: 5px;
+    transition: .3s ease;
+
+    svg {
+      margin-right: 10px;
+
+      path {
+        fill: #052C65;
+      }
+    }
+
+    span {
+      font-size: 14px;
+      color: #052C65;
+    }
+
+    &.active {
+      background: #0D6EFD;
+      transition: background .3s ease;
+
+      svg {
+        path {
+          fill: #FFFFFF;
+        }
+      }
+
+      span {
+        color: #FFFFFF;
+      }
+
+      &:hover {
+        background: #16499f;
+      }
+    }
+
+    &:hover {
+      background: #16499f;
+
+      svg {
+
+        path {
+          fill: #FFFFFF;
+        }
+      }
+
+      span {
+        color: #FFFFFF;
+      }
+    }
+  }
+
+  .accordion {
+    .accordion-item {
+      border: none;
+
+      .accordion-header {
+        border-radius: 5px 5px 0 0;
+        border-top: 1px solid;
+        border-right: 1px solid;
+        border-left: 1px solid;
+        border-bottom: none;
+        border-color: transparent;
+
+        &:hover {
+          background: #16499f;
+          border-radius: 5px 5px 5px 5px;
+          .accordion-button{
+            color: white;
+
+            &::after {
+              --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
+            }
+          }
+        }
+
+        &.active {
+          border-color: #0D6EFD;
+          background: #0D6EFD;
+
+          &:hover {
+            border-radius: 5px 5px 0 0;
+          }
+
+          .accordion-button {
+            color: white;
+          }
+        }
+
+        .accordion-button {
+          background: transparent;
+          box-shadow: none;
+          padding: 12px 11px 12px 16px;
+          font-size: 14px;
+          color: #052C65;
+
+          &::after {
+            transform: translate(-1px, 0px) rotate(-90deg);
+            --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
+          }
+
+          &:not(.collapsed)::after {
+            transform: rotate(360deg);
+          }
+        }
+      }
+
+
+      .list-group {
+        --bs-list-group-border-color: #0D6EFD;
+        --bs-list-group-border-radius: 0;
+
+        .list-group-item {
+          color: #0D6EFD;
+          font-size: 14px;
+          transition: .3s ease;
+
+          &.active {
+            color: white;
+          }
+
+          &:first-child {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+          }
+
+          &:hover {
+            background: #16499f;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.accordion-header ~ .accordion-collapse:has(.list-group-item.active) .accordion-header {
+  border: 1px solid #0D6EFD;
+}
+
+.layout-balance {
+  padding: 0 20px 20px 20px;
+  text-align: start;
+  display: flex;
+  align-items: end;
+  justify-content: start;
+  color: #052C65;
+  span {
+    color: #0D6EFD;
+    margin-left: 10px;
+  }
+}
+
+.layout-user {
+  padding: 20px 20px 40px 20px;
+
+  .layout-user-block {
+    display: flex;
+    align-items: center;
+    #profile-image {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      margin-right: 16px;
+      background-image: url("../static/images/photo-user.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: unset;
+    }
+    #profile-name {
+      color: #052C65;
+      font-size: 14px;
+    }
+  }
+
+  ul li a {
+    font-size: 14px;
+    color: #052C65;
+  }
+}
+
+.burger {
+  top: 15px;
+  left: 15px;
+  border-color: #0D6EFD;
+  background: transparent;
+  border-radius: 5px;
+  button svg {
+      width: 30px;
+      height: 30px;
+      fill: #006bff;
+    }
 }
 
 #content-layout {
   width: 100%;
 }
+

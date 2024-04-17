@@ -1,5 +1,6 @@
 import {Login} from "./components/auth/login";
 import {Signup} from "./components/auth/signup";
+import {Main} from "./components/main";
 
 export class Router {
     constructor() {
@@ -15,8 +16,10 @@ export class Router {
                 filePathTemplate: '/templates/pages/main.html',
                 styles: [],
                 scripts: [],
-                useLayout: '/templates/layout.html', // LAYOUT HTML
-                load: ()=>{},
+                useLayout: '/templates/layout.html',
+                load: ()=>{
+                    new Main(this.openNewRoute.bind(this));
+                },
             },
             {
                 route: '/login',
@@ -39,7 +42,18 @@ export class Router {
                 load: ()=> {
                     new Signup(this.openNewRoute.bind(this));
                 }
-            }
+            },
+            {
+                route: '/income',
+                title: 'Доходы',
+                filePathTemplate: '/templates/pages/auth/signup.html',
+                styles: [],
+                scripts: [],
+                useLayout: false,
+                load: ()=> {
+                    new Signup(this.openNewRoute.bind(this));
+                }
+            },
         ];
 
     }
@@ -93,6 +107,7 @@ export class Router {
                 if (newRoute.useLayout) { // layout
                     this.contentPageElement.innerHTML = await fetch(newRoute.useLayout).then(response => response.text());
                     contentBlock = document.getElementById('content-layout');
+                    this.layout();
                 }
 
                 contentBlock.innerHTML = await fetch(newRoute.filePathTemplate).then(response => response.text());
@@ -107,5 +122,12 @@ export class Router {
             await this.activateRoute();
         }
 
+    }
+
+    layout () {
+        const accordionElementLayout = document.getElementById('accordion');
+        accordionElementLayout.addEventListener('click', (e)=> {
+            accordionElementLayout.classList.toggle('active');
+        });
     }
 }

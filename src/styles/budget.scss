@@ -4,18 +4,28 @@
       font-size: 14px;
     }
   }
+
   .table {
     font-size: 16px;
+
     thead tr th {
       color: #052C65;
       font-family: Roboto-700, sans-serif;
     }
+
     tbody {
-      tr td {
-        position: relative;
-        .pencil {
+      tr{
+        .comment {
+          min-width: 310px;
+          max-width: 500px;
+        }
+        td {
           position: relative;
-          top: -1px;
+
+          .pencil {
+            position: relative;
+            top: -1px;
+          }
         }
       }
     }

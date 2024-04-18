@@ -20,6 +20,15 @@ export class Router {
 
         this.routes = [
             {
+                route: '/404',
+                title: '404',
+                filePathTemplate: '/templates/pages/404.html',
+                styles: [],
+                scripts: [],
+                useLayout: false,
+                load: ()=>{},
+            },
+            {
                 route: '/',
                 title: 'Главная',
                 filePathTemplate: '/templates/pages/main.html',

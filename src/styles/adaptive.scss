@@ -46,6 +46,13 @@
       }
     }
   }
+
+  .budget {
+    .table {
+      font-size: 14px;
+    }
+  }
+
 }
 
 @media screen and (max-width: 575px) {
@@ -54,10 +61,12 @@
       .card {
         width: 223px;
         height: 144px;
+
         .card-body {
           .card-title {
             font-size: 20px;
           }
+
           .buttons a {
             font-size: 12px;
           }
@@ -71,6 +80,7 @@
     .modal-text {
       font-size: 16px;
     }
+
     .modal-buttons {
       button {
         font-size: 12px;
@@ -94,8 +104,16 @@
   .income-expenses {
     .income-expenses-cards {
       justify-content: start;
+
       .card {
         width: 140px;
+      }
+    }
+  }
+  .budget {
+    .buttons {
+      a {
+        font-size: 12px;
       }
     }
   }

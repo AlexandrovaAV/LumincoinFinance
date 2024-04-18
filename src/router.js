@@ -7,6 +7,9 @@ import {IncomeEdit} from "./components/income/edit";
 import {ExpensesView} from "./components/expenses/view";
 import {ExpensesCreate} from "./components/expenses/create";
 import {ExpensesEdit} from "./components/expenses/edit";
+import {BudgetView} from "./components/budget/view";
+import {BudgetCreate} from "./components/budget/create";
+import {BudgetEdit} from "./components/budget/edit";
 
 export class Router {
     constructor() {
@@ -113,6 +116,39 @@ export class Router {
                 useLayout: '/templates/layout.html',
                 load: ()=> {
                     new ExpensesEdit(this.openNewRoute.bind(this));
+                }
+            },
+            {
+                route: '/budget',
+                title: 'Доходы и расходы',
+                filePathTemplate: '/templates/pages/budget/view.html',
+                styles: [],
+                scripts: [],
+                useLayout: '/templates/layout.html',
+                load: ()=> {
+                    new BudgetView(this.openNewRoute.bind(this));
+                }
+            },
+            {
+                route: '/budget/create',
+                title: 'Создание дохода/расхода',
+                filePathTemplate: '/templates/pages/budget/create.html',
+                styles: [],
+                scripts: [],
+                useLayout: '/templates/layout.html',
+                load: ()=> {
+                    new BudgetCreate(this.openNewRoute.bind(this));
+                }
+            },
+            {
+                route: '/budget/edit',
+                title: 'Редактирование дохода/расхода',
+                filePathTemplate: '/templates/pages/budget/edit.html',
+                styles: [],
+                scripts: [],
+                useLayout: '/templates/layout.html',
+                load: ()=> {
+                    new BudgetEdit(this.openNewRoute.bind(this));
                 }
             },
         ];

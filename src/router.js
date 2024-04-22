@@ -26,7 +26,8 @@ export class Router {
                 styles: [],
                 scripts: [],
                 useLayout: false,
-                load: ()=>{},
+                load: () => {
+                },
             },
             {
                 route: '/',
@@ -35,7 +36,7 @@ export class Router {
                 styles: [],
                 scripts: [],
                 useLayout: '/templates/layout.html',
-                load: ()=>{
+                load: () => {
                     new Main(this.openNewRoute.bind(this));
                 },
             },
@@ -46,7 +47,7 @@ export class Router {
                 styles: [],
                 scripts: [],
                 useLayout: false,
-                load: ()=> {
+                load: () => {
                     new Login(this.openNewRoute.bind(this));
                 }
             },
@@ -57,7 +58,7 @@ export class Router {
                 styles: [],
                 scripts: [],
                 useLayout: false,
-                load: ()=> {
+                load: () => {
                     new Signup(this.openNewRoute.bind(this));
                 }
             },
@@ -68,7 +69,7 @@ export class Router {
                 styles: [],
                 scripts: [],
                 useLayout: '/templates/layout.html',
-                load: ()=> {
+                load: () => {
                     new IncomeView(this.openNewRoute.bind(this));
                 }
             },
@@ -79,7 +80,7 @@ export class Router {
                 styles: [],
                 scripts: [],
                 useLayout: '/templates/layout.html',
-                load: ()=> {
+                load: () => {
                     new IncomeCreate(this.openNewRoute.bind(this));
                 }
             },
@@ -90,7 +91,7 @@ export class Router {
                 styles: [],
                 scripts: [],
                 useLayout: '/templates/layout.html',
-                load: ()=> {
+                load: () => {
                     new IncomeEdit(this.openNewRoute.bind(this));
                 }
             },
@@ -101,7 +102,7 @@ export class Router {
                 styles: [],
                 scripts: [],
                 useLayout: '/templates/layout.html',
-                load: ()=> {
+                load: () => {
                     new ExpensesView(this.openNewRoute.bind(this));
                 }
             },
@@ -112,7 +113,7 @@ export class Router {
                 styles: [],
                 scripts: [],
                 useLayout: '/templates/layout.html',
-                load: ()=> {
+                load: () => {
                     new ExpensesCreate(this.openNewRoute.bind(this));
                 }
             },
@@ -123,7 +124,7 @@ export class Router {
                 styles: [],
                 scripts: [],
                 useLayout: '/templates/layout.html',
-                load: ()=> {
+                load: () => {
                     new ExpensesEdit(this.openNewRoute.bind(this));
                 }
             },
@@ -134,7 +135,7 @@ export class Router {
                 styles: [],
                 scripts: [],
                 useLayout: '/templates/layout.html',
-                load: ()=> {
+                load: () => {
                     new BudgetView(this.openNewRoute.bind(this));
                 }
             },
@@ -145,7 +146,7 @@ export class Router {
                 styles: [],
                 scripts: [],
                 useLayout: '/templates/layout.html',
-                load: ()=> {
+                load: () => {
                     new BudgetCreate(this.openNewRoute.bind(this));
                 }
             },
@@ -156,7 +157,7 @@ export class Router {
                 styles: [],
                 scripts: [],
                 useLayout: '/templates/layout.html',
-                load: ()=> {
+                load: () => {
                     new BudgetEdit(this.openNewRoute.bind(this));
                 }
             },
@@ -213,7 +214,7 @@ export class Router {
                 if (newRoute.useLayout) { // layout
                     this.contentPageElement.innerHTML = await fetch(newRoute.useLayout).then(response => response.text());
                     contentBlock = document.getElementById('content-layout');
-                    this.layout();
+                    this.layout(newRoute);
                 }
 
                 contentBlock.innerHTML = await fetch(newRoute.filePathTemplate).then(response => response.text());
@@ -222,6 +223,7 @@ export class Router {
             if (newRoute.load && typeof newRoute.load === 'function') { // загрузка компонента
                 newRoute.load();
             }
+
         } else {
             console.log('No route found');
             history.pushState({}, '', '/404');
@@ -230,10 +232,18 @@ export class Router {
 
     }
 
-    layout () {
-        const accordionElementLayout = document.getElementById('accordion');
-        accordionElementLayout.addEventListener('click', (e)=> {
-            accordionElementLayout.classList.toggle('active');
+    layout(route) {
+        document.querySelectorAll('.menu-items a').forEach(item => {
+            const href = item.getAttribute('href');
+            if (route.route === href) {
+                item.classList.add('active');
+                if (href === '/income' || href === '/expenses') {
+                    document.getElementById('accordion').firstElementChild.setAttribute('aria-expanded', 'true');
+                    document.getElementById('panelsStayOpen-collapseOne').classList.add('show');
+                }
+            } else {
+                item.classList.remove('active');
+            }
         });
     }
 }

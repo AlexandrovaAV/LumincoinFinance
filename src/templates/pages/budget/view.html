@@ -32,11 +32,13 @@
         <button type="button" class="btn btn-outline-secondary title-page">Все</button>
         <button type="button" class="btn btn-outline-secondary title-page">Интервал</button>
         <div class="interval d-flex align-items-center">
-            <div>с
-                <button type="button" class="btn btn-link text-secondary title-page">Дата</button>
+            <div class="d-flex align-items-center">с
+                <button type="button" class="btn btn-link text-secondary title-page" id="dateFrom">Дата</button>
+                <input type="date" class="d-none text-secondary title-page z-2">
             </div>
-            <div class="ms-3">по
-                <button type="button" class="btn btn-link text-secondary title-page">Дата</button>
+            <div class="d-flex align-items-center ms-3">по
+                <button type="button" class="btn btn-link text-secondary title-page" id="dateTo">Дата</button>
+                <input type="date" class="d-none text-secondary title-page z-2">
             </div>
         </div>
     </div>

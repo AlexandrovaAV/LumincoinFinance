@@ -2,9 +2,12 @@
   button {
     width: 100px;
   }
+
   .interval {
     button {
-      width: 63px;
+      min-width: 63px;
+      max-width: 160px;
+      width: 100%;
     }
   }
 }
@@ -14,6 +17,7 @@
   margin-top: 140px;
 }
 
-.chartjs-hidden-iframe {
-  height: 100% !important;
+.chart {
+  width: 437px;
+  height: 467px;
 }

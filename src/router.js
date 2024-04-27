@@ -1,5 +1,3 @@
-import {Login} from "./components/auth/login";
-import {Signup} from "./components/auth/signup";
 import {Main} from "./components/main";
 import {IncomeView} from "./components/income/view";
 import {IncomeCreate} from "./components/income/create";
@@ -10,6 +8,7 @@ import {ExpensesEdit} from "./components/expenses/edit";
 import {BudgetView} from "./components/budget/view";
 import {BudgetCreate} from "./components/budget/create";
 import {BudgetEdit} from "./components/budget/edit";
+import {Form} from "./components/form";
 
 export class Router {
     constructor() {
@@ -48,7 +47,7 @@ export class Router {
                 scripts: [],
                 useLayout: false,
                 load: () => {
-                    new Login(this.openNewRoute.bind(this));
+                    new Form(this.openNewRoute.bind(this), 'login');
                 }
             },
             {
@@ -59,7 +58,7 @@ export class Router {
                 scripts: [],
                 useLayout: false,
                 load: () => {
-                    new Signup(this.openNewRoute.bind(this));
+                    new Form(this.openNewRoute.bind(this), 'signup');
                 }
             },
             {

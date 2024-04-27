@@ -30,6 +30,12 @@ input::placeholder {
   font-size: 15px;
 }
 
+.login {
+  div:has(> #button[disabled])  {
+    cursor: not-allowed;
+  }
+}
+
 .modal {
   .modal-text {
     color: #290661;

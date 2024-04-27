@@ -1,6 +1,53 @@
 export class Main {
     constructor() {
-        console.log('ГЛАВНАЯ');
+        this.incomeElement = null;
+        this.expensesElement = null;
+        this.dateFromElement = null;
+        this.dateToElement = null;
+
+        this.init();
+    }
+
+    init() {
+        this.diagrams();
+
+        // оптимизировать + страница Доходы&Расходы имеет такие же кнопки.
+        // сделать нажатие на все кнопки (сегодня, неделя, месяц... )
+        this.dateFromElement = document.getElementById('dateFrom');
+        this.dateToElement = document.getElementById('dateTo');
+
+        this.dateFromElement.addEventListener('focusin', function () {
+            this.classList.add('d-none');
+            this.nextElementSibling.classList.remove('d-none');
+            this.nextElementSibling.focus();
+        });
+
+        this.dateFromElement.parentElement.children[1].addEventListener('blur', function () {
+            if (this.value) {
+                this.previousElementSibling.innerText = new Date(this.value).toLocaleDateString();
+            } else {
+                this.previousElementSibling.innerText = "Дата";
+            }
+            this.classList.add('d-none');
+            this.previousElementSibling.classList.remove('d-none');
+        });
+
+        // Оптимизировать и объединить, наверное, использовать utils
+        /*this.dateToElement.addEventListener('click', function() {
+            this.classList.add('d-none');
+            this.nextElementSibling.classList.remove('d-none');
+            this.nextElementSibling.focus();
+        });
+        this.dateToElement.parentElement.children[1].addEventListener('blur', function () {
+            if (this.value) {
+                this.previousElementSibling.innerText = this.value;
+            }
+            this.classList.add('d-none');
+            this.previousElementSibling.classList.remove('d-none');
+        });*/
+    }
+
+    diagrams() {
         const data = {
             labels: [
                 'Red',
@@ -22,7 +69,7 @@ export class Main {
                 hoverOffset: 4
             }]
         };
-        const plugins = {
+        this.plugins = {
             title: {
                 display: true,
                 fullSize: true,
@@ -42,7 +89,8 @@ export class Main {
                 }
             }
         };
-        const pluginsIncome = Object.assign({}, plugins, {
+
+        const pluginsIncome = Object.assign({}, this.plugins, {
             title: {
                 display: true,
                 text: 'Доходы',
@@ -53,7 +101,7 @@ export class Main {
                 }
             }
         });
-        const pluginsExpenses = Object.assign({}, plugins, {
+        const pluginsExpenses = Object.assign({}, this.plugins, {
             title: {
                 display: true,
                 text: 'Расходы',
@@ -65,15 +113,14 @@ export class Main {
             }
         });
 
-        const incomeElement = document.getElementById('income').getContext('2d');
-        const expensesElement = document.getElementById('expenses').getContext('2d');
-        incomeElement.canvas.height = 200;
-        incomeElement.canvas.width = 200;
-        expensesElement.canvas.height = 200;
-        expensesElement.canvas.width = 200;
+        this.incomeElement = document.getElementById('income').getContext('2d');
+        this.expensesElement = document.getElementById('expenses').getContext('2d');
+        this.incomeElement.canvas.height = 200;
+        this.incomeElement.canvas.width = 200;
+        this.expensesElement.canvas.height = 200;
+        this.expensesElement.canvas.width = 200;
 
-
-        let income = new Chart(incomeElement, {
+        let income = new Chart(this.incomeElement, {
                 type: 'pie',
                 data: data,
                 options: {
@@ -83,7 +130,7 @@ export class Main {
                 }
             }
         );
-        let expenses = new Chart(expensesElement, {
+        let expenses = new Chart(this.expensesElement, {
                 type: 'pie',
                 data: data,
                 options: {
@@ -93,8 +140,5 @@ export class Main {
                 }
             }
         );
-        income.resize();
-        expenses.resize();
-
     }
 }

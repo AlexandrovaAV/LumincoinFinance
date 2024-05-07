@@ -1,17 +1,25 @@
 import config from "../config/config";
+import {AuthUtils} from "./auth-utils";
 
 export class HttpUtils {
-    static async request(url, method = "GET", body = null) {
+    static async request(url, method = "GET", useAuth = true, body = null) {
         const headers = {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         };
 
+        let token = null;
+
+        if (useAuth) {
+            token = AuthUtils.getAuthInfo(AuthUtils.accessTokenKey);
+            if (token) {
+                headers["x-auth-token"] = token;
+            }
+        }
+
         if (body) {
             body = JSON.stringify(body);
         }
-
-        let token = null;
 
         const response = await fetch(config.host + url, {
             method: method,
@@ -20,8 +28,11 @@ export class HttpUtils {
         });
 
         if (response.status < 200 || response.status >= 300) {
-            if (response.status === 401) {
-
+            if (useAuth && response.status === 401) {
+                if (!token) {
+                    // not token
+                }
+                // old token
             }
         }
 

@@ -1,9 +1,12 @@
 export class Main {
-    constructor() {
+    constructor(openNewRoute) {
+        this.openNewRoute = openNewRoute;
         this.incomeElement = null;
         this.expensesElement = null;
         this.dateFromElement = null;
         this.dateToElement = null;
+
+        //
 
         this.init();
     }

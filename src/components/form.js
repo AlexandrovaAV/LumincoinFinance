@@ -7,6 +7,10 @@ export class Form {
         this.page = page;
         this.processElement = null;
 
+        if (AuthUtils.getAuthInfo(AuthUtils.accessTokenKey)){
+            return this.openNewRoute('/');
+        }
+
         this.fields = [
             {
                 name: 'email',

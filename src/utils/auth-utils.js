@@ -1,3 +1,5 @@
+import {HttpUtils} from "./http-utils";
+
 export class AuthUtils {
     static accessTokenKey = 'accessToken';
     static refreshTokenKey = 'refreshToken';
@@ -22,5 +24,33 @@ export class AuthUtils {
                 [this.userInfoKey]: localStorage.getItem(this.userInfoKey),
             }
         }
+    }
+
+    static removeAuthInfo() {
+        localStorage.removeItem(this.accessTokenKey);
+        localStorage.removeItem(this.refreshTokenKey);
+        localStorage.removeItem(this.userInfoKey);
+    }
+
+    static async updateRefreshToken() {
+        let result = false;
+        const refreshToken = this.getAuthInfo(this.refreshTokenKey);
+        if (refreshToken) {
+            const response = HttpUtils.request('/refresh', 'POST', false, {"refreshToken": refreshToken});
+            if (response && response.status === 200) {
+                const tokens = await response.json();
+                if (tokens && !tokens.error) {
+                    this.setAuthInfo(tokens.accessTokenKey, tokens.refreshTokenKey);
+                    result = true;
+                }
+            }
+        }
+
+        if (!result) {
+            this.removeAuthInfo();
+        }
+
+        return result;
+
     }
 }

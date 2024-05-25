@@ -3,22 +3,23 @@
     <h1 class="text-primary-emphasis title-page mb-4 mb-xl-5 mb-sm-3 ms-5 ms-xl-0 ps-4 ps-xl-0">Главная</h1>
 
     <div class="main-intervals intervals d-flex flex-wrap justify-content-evenly justify-content-lg-start column-gap-xl-4 column-gap-2 row-gap-2">
-        <button type="button" class="btn btn-secondary title-page">Сегодня</button>
-        <button type="button" class="btn btn-outline-secondary title-page">Неделя</button>
-        <button type="button" class="btn btn-outline-secondary title-page">Месяц</button>
-        <button type="button" class="btn btn-outline-secondary title-page">Год</button>
-        <button type="button" class="btn btn-outline-secondary title-page">Все</button>
-        <button type="button" class="btn btn-outline-secondary title-page">Интервал</button>
-        <div class="interval d-flex align-items-center">
-            <div class="d-flex align-items-center">с
-                <button type="button" class="btn btn-link text-secondary title-page" id="dateFrom">Дата</button>
-                <input type="date" class="d-none text-secondary title-page z-2">
+        <button type="button" class="btn btn-secondary title-page" id="today">Сегодня</button>
+        <button type="button" class="btn btn-outline-secondary title-page" id="week">Неделя</button>
+        <button type="button" class="btn btn-outline-secondary title-page" id="month">Месяц</button>
+        <button type="button" class="btn btn-outline-secondary title-page" id="year">Год</button>
+        <button type="button" class="btn btn-outline-secondary title-page" id="all">Все</button>
+        <button type="button" class="btn btn-outline-secondary title-page" id="interval">Интервал</button>
+        <div class="interval d-flex gap-2 align-items-center flex-wrap d-none" id="interval-block">
+            <div class="d-flex align-items-center justify-content-around">
+                <span class="me-2">с</span>
+                <input type="date" class=" text-secondary title-page z-2 me-0 me-sm-2 py-1 px-2 border border-secondary focus-ring" id="dateFrom">
             </div>
-            <div class="d-flex align-items-center ms-3">по
-                <button type="button" class="btn btn-link text-secondary title-page" id="dateTo">Дата</button>
-                <input type="date" class="d-none text-secondary title-page z-2">
+            <div class="d-flex align-items-center justify-content-around ms-0 ms-sm-3">
+                <span class="me-2">по</span>
+                <input type="date" class=" text-secondary title-page z-2 py-1 px-2 border border-secondary focus-ring" id="dateTo">
             </div>
         </div>
+        <button type="button" class="btn btn-outline-primary d-none ms-2 px-2 py-1 w-auto" id="apply">Принять</button>
     </div>
 
     <div class="diagram z-2 d-flex flex-wrap justify-content-xl-around justify-content-lg-between justify-content-center row-gap-5">

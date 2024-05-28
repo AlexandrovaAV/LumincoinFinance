@@ -206,6 +206,7 @@ export class Router {
                         let balance = await HttpUtils.request('/balance');
                         document.getElementById('balance').innerText = balance.response.balance + '$';
                         document.getElementById('profile-name').innerText = name;
+                        document.getElementById('profile-name').setAttribute('data-text', name);
                     } catch (e) {}
                 }
 

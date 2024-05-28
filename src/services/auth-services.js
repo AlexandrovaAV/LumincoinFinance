@@ -24,7 +24,11 @@ export class AuthServices {
     static async signup(body) {
         const result = await HttpUtils.request('/signup', 'POST', false, body);
 
-        if (result.error || !result.response || (result.response && (!result.response.tokens.accessToken && !result.response.tokens.refreshToken && !result.response.user.id))) {
+        if (result.error || !result.response || (result.response && !result.response.user)) {
+            if (result.response.error && result.response.message === "User with given email already exist") {
+                alert('Пользователь с таким email уже существует');
+                location.reload();
+            }
             return;
         }
 

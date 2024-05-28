@@ -23,7 +23,7 @@ export class ExpensesView {
         const addElement = document.createElement('div');
         addElement.classList.add('card');
         addElement.classList.add('income-expenses-add');
-        addElement.innerHTML = HTMLUtils.categoriesGetHTMLForAddElement(config.budgetsTypes.income);
+        addElement.innerHTML = HTMLUtils.categoriesGetHTMLForAddElement(config.budgetsTypes.expense);
 
         this.objElements.categoriesElement.appendChild(addElement);
 

@@ -37,7 +37,7 @@ export class CategoriesServices {
             return returnObject;
         }
 
-        returnObject.categoryIncome = result.response;
+        returnObject.category = result.response;
         return returnObject;
     }
 

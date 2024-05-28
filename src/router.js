@@ -1,16 +1,14 @@
 import {Main} from "./components/main";
-import {IncomeView} from "./components/income/view";
-import {IncomeCreate} from "./components/income/create";
-import {IncomeEdit} from "./components/income/edit";
-import {ExpensesView} from "./components/expenses/view";
-import {ExpensesCreate} from "./components/expenses/create";
-import {ExpensesEdit} from "./components/expenses/edit";
 import {BudgetView} from "./components/budget/view";
 import {BudgetCreate} from "./components/budget/create";
 import {BudgetEdit} from "./components/budget/edit";
 import {Form} from "./components/form";
 import {HttpUtils} from "./utils/http-utils";
 import {AuthServices} from "./services/auth-services";
+import {Category} from "./components/category/category";
+import config from "./config/config";
+import {CategoryEdit} from "./components/category/edit";
+import {CategoryCreate} from "./components/category/create";
 
 export class Router {
     constructor() {
@@ -58,55 +56,55 @@ export class Router {
             {
                 route: '/income',
                 title: 'Доходы',
-                filePathTemplate: '/templates/pages/income/view.html',
+                filePathTemplate: '/templates/pages/category/category.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new IncomeView(this.openNewRoute.bind(this));
+                    new Category(this.openNewRoute.bind(this), config.budgetsTypes.income);
                 }
             },
             {
                 route: '/income/create',
                 title: 'Создание категории доходов',
-                filePathTemplate: '/templates/pages/income/create.html',
+                filePathTemplate: '/templates/pages/category/create.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new IncomeCreate(this.openNewRoute.bind(this));
+                    new CategoryCreate(this.openNewRoute.bind(this), config.budgetsTypes.income);
                 }
             },
             {
                 route: '/income/edit',
                 title: 'Редактирование категории доходов',
-                filePathTemplate: '/templates/pages/income/edit.html',
+                filePathTemplate: '/templates/pages/category/edit.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new IncomeEdit(this.openNewRoute.bind(this));
+                    new CategoryEdit(this.openNewRoute.bind(this), config.budgetsTypes.income);
                 }
             },
             {
                 route: '/expense',
                 title: 'Расходы',
-                filePathTemplate: '/templates/pages/expenses/view.html',
+                filePathTemplate: '/templates/pages/category/category.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new ExpensesView(this.openNewRoute.bind(this));
+                    new Category(this.openNewRoute.bind(this), config.budgetsTypes.expense);
                 }
             },
             {
                 route: '/expense/create',
                 title: 'Создание категории расходов',
-                filePathTemplate: '/templates/pages/expenses/create.html',
+                filePathTemplate: '/templates/pages/category/create.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new ExpensesCreate(this.openNewRoute.bind(this));
+                    new CategoryCreate(this.openNewRoute.bind(this), config.budgetsTypes.expense);
                 }
             },
             {
                 route: '/expense/edit',
                 title: 'Редактирование категории расходов',
-                filePathTemplate: '/templates/pages/expenses/edit.html',
+                filePathTemplate: '/templates/pages/category/edit.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new ExpensesEdit(this.openNewRoute.bind(this));
+                    new CategoryEdit(this.openNewRoute.bind(this), config.budgetsTypes.expense);
                 }
             },
             {

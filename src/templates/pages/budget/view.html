@@ -7,10 +7,9 @@
                     <div class="modal-text title-page mb-4">
                         <span class="text-center d-block">Вы действительно хотите удалить операцию?</span>
                     </div>
-                    <div class="modal-buttons">
-                        <button type="button" class="btn btn-success title-page me-2">Да, удалить</button>
-                        <button type="button" class="btn btn-danger title-page" data-bs-dismiss="modal">Не удалять
-                        </button>
+                    <div class="modal-buttons" id="records-change">
+                        <button type="button" class="btn btn-success title-page me-2" data-bs-dismiss="modal">Да, удалить</button>
+                        <button type="button" class="btn btn-danger title-page" data-bs-dismiss="modal">Не удалять</button>
                     </div>
                 </div>
             </div>
@@ -20,25 +19,28 @@
     <h1 class="text-primary-emphasis title-page mb-4 mb-xl-5 ms-5 ms-xl-0 ps-4 ps-xl-0">Доходы и расходы</h1>
 
     <div class="buttons">
-        <a href="/budget/create" class="btn btn-success me-2">Создать доход</a>
-        <a href="/budget/create" class="btn btn-danger">Создать расход</a>
+        <a href="/budget/create?type=income" class="btn btn-success me-2">Создать доход</a>
+        <a href="/budget/create?type=expense" class="btn btn-danger">Создать расход</a>
     </div>
 
     <div class="main-intervals intervals d-flex flex-wrap justify-content-evenly justify-content-lg-start column-gap-xl-4 column-gap-2 row-gap-2 mt-4">
-        <button type="button" class="btn btn-secondary title-page">Сегодня</button>
-        <button type="button" class="btn btn-outline-secondary title-page">Неделя</button>
-        <button type="button" class="btn btn-outline-secondary title-page">Месяц</button>
-        <button type="button" class="btn btn-outline-secondary title-page">Год</button>
-        <button type="button" class="btn btn-outline-secondary title-page">Все</button>
-        <button type="button" class="btn btn-outline-secondary title-page">Интервал</button>
-        <div class="interval d-flex align-items-center">
-            <div>с
-                <button type="button" class="btn btn-link text-secondary title-page">Дата</button>
+        <button type="button" class="btn btn-secondary title-page" id="today">Сегодня</button>
+        <button type="button" class="btn btn-outline-secondary title-page" id="week">Неделя</button>
+        <button type="button" class="btn btn-outline-secondary title-page" id="month">Месяц</button>
+        <button type="button" class="btn btn-outline-secondary title-page" id="year">Год</button>
+        <button type="button" class="btn btn-outline-secondary title-page" id="all">Все</button>
+        <button type="button" class="btn btn-outline-secondary title-page" id="interval">Интервал</button>
+        <div class="interval d-flex gap-2 align-items-center flex-wrap d-none" id="interval-block">
+            <div class="d-flex align-items-center justify-content-around">
+                <span class="me-2">с</span>
+                <input type="date" class=" text-secondary title-page z-2 me-0 me-sm-2 py-1 px-2 border border-secondary focus-ring" id="dateFrom">
             </div>
-            <div class="ms-3">по
-                <button type="button" class="btn btn-link text-secondary title-page">Дата</button>
+            <div class="d-flex align-items-center justify-content-around ms-0 ms-sm-3">
+                <span class="me-2">по</span>
+                <input type="date" class=" text-secondary title-page z-2 py-1 px-2 border border-secondary focus-ring" id="dateTo">
             </div>
         </div>
+        <button type="button" class="btn btn-outline-primary d-none ms-2 px-2 py-1 w-auto" id="apply">Принять</button>
     </div>
 
     <div class="table-responsive mt-4">
@@ -54,47 +56,13 @@
                 <th scope="col"></th>
             </tr>
             </thead>
-            <tbody>
+            <tbody id="records">
             <tr>
                 <th scope="row" class="text-center">1</th>
                 <td class="text-success text-center">доход</td>
                 <td class="text-center">зарплата</td>
                 <td class="text-center">500$</td>
                 <td class="text-center">11.09.2022</td>
-                <td class="text-center comment"></td>
-                <td>
-                    <div class="d-flex flex-nowrap justify-content-end">
-                        <a href="javascript:void(0)" class="text-decoration-none me-2 d-inline-block"
-                           data-bs-toggle="modal" data-bs-target="#budgetModalDelete">
-                            <svg width="14" height="15" viewBox="0 0 14 15" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.5 5.5C4.77614 5.5 5 5.72386 5 6V12C5 12.2761 4.77614 12.5 4.5 12.5C4.22386 12.5 4 12.2761 4 12V6C4 5.72386 4.22386 5.5 4.5 5.5Z"
-                                      fill="black"/>
-                                <path d="M7 5.5C7.27614 5.5 7.5 5.72386 7.5 6V12C7.5 12.2761 7.27614 12.5 7 12.5C6.72386 12.5 6.5 12.2761 6.5 12V6C6.5 5.72386 6.72386 5.5 7 5.5Z"
-                                      fill="black"/>
-                                <path d="M10 6C10 5.72386 9.77614 5.5 9.5 5.5C9.22386 5.5 9 5.72386 9 6V12C9 12.2761 9.22386 12.5 9.5 12.5C9.77614 12.5 10 12.2761 10 12V6Z"
-                                      fill="black"/>
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                      d="M13.5 3C13.5 3.55228 13.0523 4 12.5 4H12V13C12 14.1046 11.1046 15 10 15H4C2.89543 15 2 14.1046 2 13V4H1.5C0.947715 4 0.5 3.55228 0.5 3V2C0.5 1.44772 0.947715 1 1.5 1H5C5 0.447715 5.44772 0 6 0H8C8.55229 0 9 0.447715 9 1H12.5C13.0523 1 13.5 1.44772 13.5 2V3ZM3.11803 4L3 4.05902V13C3 13.5523 3.44772 14 4 14H10C10.5523 14 11 13.5523 11 13V4.05902L10.882 4H3.11803ZM1.5 3V2H12.5V3H1.5Z"
-                                      fill="black"/>
-                            </svg>
-                        </a>
-                        <a href="/budget/edit" class="text-decoration-none pencil">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12.1465 0.146447C12.3417 -0.0488155 12.6583 -0.0488155 12.8536 0.146447L15.8536 3.14645C16.0488 3.34171 16.0488 3.65829 15.8536 3.85355L5.85357 13.8536C5.80569 13.9014 5.74858 13.9391 5.68571 13.9642L0.68571 15.9642C0.500001 16.0385 0.287892 15.995 0.146461 15.8536C0.00502989 15.7121 -0.0385071 15.5 0.0357762 15.3143L2.03578 10.3143C2.06092 10.2514 2.09858 10.1943 2.14646 10.1464L12.1465 0.146447ZM11.2071 2.5L13.5 4.79289L14.7929 3.5L12.5 1.20711L11.2071 2.5ZM12.7929 5.5L10.5 3.20711L4.00001 9.70711V10H4.50001C4.77616 10 5.00001 10.2239 5.00001 10.5V11H5.50001C5.77616 11 6.00001 11.2239 6.00001 11.5V12H6.29291L12.7929 5.5ZM3.03167 10.6755L2.92614 10.781L1.39754 14.6025L5.21903 13.0739L5.32456 12.9683C5.13496 12.8973 5.00001 12.7144 5.00001 12.5V12H4.50001C4.22387 12 4.00001 11.7761 4.00001 11.5V11H3.50001C3.28561 11 3.10272 10.865 3.03167 10.6755Z"
-                                      fill="black"/>
-                            </svg>
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row" class="text-center">2</th>
-                <td class="text-danger text-center">расход</td>
-                <td class="text-center">жильё</td>
-                <td class="text-center">2 500$</td>
-                <td class="text-center">12.09.2022</td>
                 <td class="text-center comment"></td>
                 <td>
                     <div class="d-flex flex-nowrap justify-content-end">

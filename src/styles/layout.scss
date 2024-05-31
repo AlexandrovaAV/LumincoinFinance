@@ -59,11 +59,13 @@
       border: 1px solid transparent;
       transition: border .5s;
 
-      &:has( > .accordion-header > .accordion-button[aria-expanded="true"]){
+      &:has( > .accordion-header > .accordion-button[aria-expanded="true"]) {
         border: 1px solid #0D6EFD;
+
         .accordion-header {
           .accordion-button {
             color: #0D6EFD;
+
             &::after {
               --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%230D6EFD' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
             }
@@ -75,6 +77,7 @@
         .accordion-header {
           .accordion-button {
             color: white;
+
             &::after {
               --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
               --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
@@ -89,8 +92,10 @@
         &:hover {
           background: #16499f;
           border-radius: 5px;
+
           .accordion-button {
             color: white;
+
             &::after {
               --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
               --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
@@ -102,19 +107,22 @@
           background: #0D6EFD;
           border-radius: 5px 5px 5px 5px;
           transition: border-radius .9s;
+
           &:hover {
             background: #16499f;
           }
         }
 
-        &:has( > .accordion-button[aria-expanded="true"]){
+        &:has( > .accordion-button[aria-expanded="true"]) {
           border-radius: 5px 5px 0 0;
           transition: border-radius 0s;
 
           &:hover {
             background: #16499f;
+
             .accordion-button {
               color: white;
+
               &::after {
                 --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
               }
@@ -187,6 +195,7 @@
   align-items: end;
   justify-content: start;
   color: #052C65;
+
   span {
     color: #0D6EFD;
     margin-left: 10px;
@@ -195,10 +204,12 @@
 
 .layout-user {
   padding: 20px 20px 40px 20px;
+  position: relative;
 
   .layout-user-block {
     display: flex;
     align-items: center;
+
     #profile-image {
       width: 36px;
       height: 36px;
@@ -209,9 +220,34 @@
       background-position: center;
       background-size: unset;
     }
+
     #profile-name {
       color: #052C65;
       font-size: 14px;
+      max-width: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &::before {
+        content: attr(data-text);
+        transform: scale(0);
+        border: 1px solid rgba(0, 0, 0, 0.17);
+        border-radius: 10px;
+        padding: 5px 12px;
+        color: #052C65;
+        background: white;
+        position: absolute;
+        font-size: 14px;
+        z-index: 5;
+        bottom: 15px;
+        left: 10px;
+        transition: .3s;
+      }
+      &:hover {
+        &::before {
+          transform: scale(1);
+        }
+      }
     }
   }
 
@@ -227,11 +263,12 @@
   border-color: #0D6EFD;
   background: transparent;
   border-radius: 5px;
+
   button svg {
-      width: 30px;
-      height: 30px;
-      fill: #006bff;
-    }
+    width: 30px;
+    height: 30px;
+    fill: #006bff;
+  }
 }
 
 #content-layout {

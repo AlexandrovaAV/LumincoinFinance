@@ -1,4 +1,4 @@
-<div class="login container row mx-auto vh-100 justify-content-center align-items-center">
+<div class="login container row mx-auto vh-100 justify-content-center align-items-center position-relative">
     <div class="col-sm-8 col-md-6 col-lg-4 row justify-content-center">
         <div class="logo col-12 text-center mb-5">
             <a href="/"><img src="/static/images/Logo.png" alt="Логотип"></a>
@@ -59,5 +59,18 @@
             </div>
             <span class="mt-2" style="font-size: 12px">Уже есть аккаунт? <a class="ms-0 ms-sm-2" href="/login">Войдите в систему</a></span>
         </form>
+    </div>
+    <div class="modal justify-content-center align-items-center" tabindex="-1" id="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body modal-text text-center">
+                    <p class="mb-1 title-page">Вы успешно зарегистрировались!</p>
+                    <p class="title-page">Пройдите авторизацию</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-primary" id="modal-btn">Ок</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

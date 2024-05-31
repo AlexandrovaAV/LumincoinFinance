@@ -3,24 +3,18 @@
     <h1 class="text-primary-emphasis title-page mb-4 mb-xl-5 ms-5 ms-xl-0 ps-4 ps-xl-0">Создание дохода/расхода</h1>
 
     <div class="budget-form row-gap-2 d-flex flex-column">
-        <input class="form-control" list="typeOptions" id="typeSelect" placeholder="Тип..." style="max-width: 397px">
-        <datalist id="typeOptions">
-            <option value="доход">
-            <option value="расход">
-        </datalist>
-        <input class="form-control" list="categoryOptions" id="categorySelect" placeholder="Категория..." style="max-width: 397px">
-        <datalist id="categoryOptions">
-            <option value="Еда">
-            <option value="Жильё">
-            <option value="Здоровье">
-            <option value="Кафе">
-            <option value="Авто">
-        </datalist>
-        <input type="number" class="border rounded-1 py-1 px-2" placeholder="Сумма в $..." style="max-width: 397px">
-        <input type="date" class="border rounded-1 py-1 px-2" placeholder="Дата..." style="max-width: 397px">
-        <input type="text" class="border rounded-1 py-1 px-2" placeholder="Комментарий..." style="max-width: 397px">
+        <select class="form-select focus-ring focus-ring-primary" id="typeSelect" style="max-width: 397px" required>
+            <option value="income" id="type-income">доход</option>
+            <option value="expense" id="type-expense">расход</option>
+        </select>
+        <select class="form-select focus-ring focus-ring-primary" id="categorySelect" style="max-width: 397px" required>
+            <option>не выбрано</option>
+        </select>
+        <input type="number" class="border rounded-1 focus-ring focus-ring-primary py-1 px-2" id="amount" placeholder="Сумма в $..." style="max-width: 397px">
+        <input type="date" class="border rounded-1 focus-ring focus-ring-primary py-1 px-2" id="date" placeholder="Дата..." style="max-width: 397px">
+        <input type="text" class="border rounded-1 focus-ring focus-ring-primary py-1 px-2" id="comment" placeholder="Комментарий..." style="max-width: 397px">
         <div class="buttons mt-4">
-            <a href="javascript:void(0)" class="btn btn-success title-page me-1">Создать</a>
+            <a href="javascript:void(0)" class="btn btn-success title-page me-1" id="save">Сохранить</a>
             <a href="/budget" class="btn btn-danger title-page">Отмена</a>
         </div>
     </div>

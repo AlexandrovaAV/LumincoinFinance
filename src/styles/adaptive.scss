@@ -68,6 +68,18 @@
   }
 }
 
+@media screen and (max-width: 940px) {
+  .intervals {
+
+    .interval {
+
+      button {
+        width: 120px;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 906px) {
   .burger {
     border: 1px solid #ffffff;
@@ -91,7 +103,7 @@
       font-size: 12px;
 
       button {
-        width: 63px;
+        width: 100px;
       }
     }
   }
@@ -124,7 +136,6 @@
     }
   }
 
-
   .modal {
     .modal-text {
       font-size: 16px;
@@ -137,6 +148,9 @@
     }
   }
 
+  .chart {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 493px) {
@@ -163,6 +177,14 @@
     .buttons {
       a {
         font-size: 12px;
+      }
+    }
+  }
+
+  .main-intervals {
+    .interval {
+      div {
+        width: 100%;
       }
     }
   }

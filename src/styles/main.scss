@@ -2,9 +2,22 @@
   button {
     width: 100px;
   }
+
   .interval {
     button {
-      width: 63px;
+      min-width: 63px;
+      max-width: 160px;
+      width: 100%;
+    }
+    input {
+      --bs-focus-ring-color: #0D6EFD;
+      --bs-focus-ring-width: 1px;
+      border-radius: 10px;
+
+      &::-webkit-calendar-picker-indicator {
+        background-image: url("../static/images/calendar-days.png");
+        cursor: pointer;
+      }
     }
   }
 }
@@ -14,6 +27,7 @@
   margin-top: 140px;
 }
 
-.chartjs-hidden-iframe {
-  height: 100% !important;
+.chart {
+  width: 437px;
+  height: 467px;
 }
